@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<!-- <%= debug current_user %> -->
+<body class="bodystyle">
+  <div class="title">
+    Sharey -趣味を共有しよう-
+  </div>
+  <%if !user_signed_in? %>
+  <div class="index">
+  <a href="/users/sign_up" class="square_btn1">新規登録</a>
+    <a href="/users/sign_in" class="square_btn2">ログイン</a>
+  <%else%>
+    <div class="content">
+    あなたのemail: <%= current_user['email'] %>
+    <br><br>
+    あなたの名前:  <%= current_user['name'] %>
+  </div>
+  <%end %>
+  </div>
+</body>
