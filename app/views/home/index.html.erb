@@ -13,6 +13,11 @@
     あなたのemail: <%= current_user['email'] %>
     <br><br>
     あなたの名前:  <%= current_user['name'] %>
+    <br><br>
+    あなたのID: <%= current_user['id'] %>
+    <br><br>
+    <p><%= link_to "プロフィールを編集", edit_user_registration_path %></p>
+   <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></p>
   </div>
   <%end %>
   </div>
