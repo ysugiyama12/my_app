@@ -11,17 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="display:none;">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, value: current_user['name'] %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content, :size=>"60x5",:placeholder=>"新規投稿" %>
   </div>
-  <div class="field">
+  <div class="field" style="display:none;">
     <%= f.label :userid %><br>
-    <%= f.text_field :userid %>
+    <%= f.text_field :userid, value: current_user['id']%>
   </div>
   <div class="actions">
     <%= f.submit %>

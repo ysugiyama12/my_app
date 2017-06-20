@@ -1,18 +1,26 @@
 <body class="bodystyle">
     <p id="notice"><%= notice %></p>
 <div class="menu">
-  This is a menu.
-  <br><br><br><br>
+  <span><%= link_to "プロフィールを編集", edit_user_registration_path %></span>
+  <span><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></span>
+  <br><br>
 </div>
 <div class="profile">
-  my profile
+  <div class="ptitle">
+  プロフィール
+</div>
+  <span class="pname">
+    <%= current_user['name']%>
+  </span>
+  <span class="pid">
+      id = <%= current_user['id']%>
+  </span>
   <br><br><br><br>
   <br><br><br><br>
   <br><br><br><br>
 </div>
 <div class="tweet">
-  <br><br><br><br>
-  <br><br><br><br>
+    <%= render 'form' %>
 </div>
   <div class="timeline">
 

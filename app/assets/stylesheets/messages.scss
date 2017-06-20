@@ -74,9 +74,9 @@ margin-left : auto;
 .box11{
     padding: 0.5em 1em;
     margin: auto;
-    color: #5d627b;
+    color: #2e8b57;
     background: white;
-    border-top: solid 5px #5d627b;
+    border-top: solid 5px #2e8b57;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
     width: 500px;
     margin-top: 30px;
@@ -97,22 +97,74 @@ margin-left : auto;
   color:#c0c0c0;
 }
 .timeline {
-  background-color: #f0fff0;
   width: 600px;
   margin:auto;
   float: left;
+  padding: 0.5em 1em;
+  margin: 5px;
+  font-weight: bold;
+  color: #2e8b57;/*文字色*/
+  background: #FFF;
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;/*角の丸み*/
 }
 .menu {
-  background-color: #b22222;
+  padding: 0.5em 1em;
+  margin: 5px;
+  font-weight: bold;
+  color: #2e8b57;/*文字色*/
+  background: #FFF;
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  text-align: right;
 }
 .profile {
   float:left;
-  background-color: #6495ed;
+  background-color: #FFFFFF;
+  margin: 5px;
   width: 30%;
+  padding: 0.5em 1em;
+  color: #2e8b57;/*文字色*/
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;
 }
 .tweet{
-  background-color: #ffd700;
     width: 600px;
     margin:auto;
     float: left;
+    margin: 5px;
+    font-weight: bold;
+    color: #2e8b57;/*文字色*/
+    background: #FFF;
+    border: solid 3px #2e8b57;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.pname {
+  font-size: 20px;
+  margin:10px;
+  font-weight: bold;
+}
+.pid {
+
+}
+.ptitle {
+  margin: 10px;
+}
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0;
+    padding: 0;
+}
+#message_content {
+  font-size: 15px;
+  // width:500px;
+  // height:100px;
 }
