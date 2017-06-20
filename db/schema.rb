@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613144544) do
+ActiveRecord::Schema.define(version: 20170620051849) do
+
+  create_table "contents", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "page_title"
+    t.text     "page_body"
+    t.integer  "Favorite",   default: 0
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "name"
+    t.string   "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "userid"
+  end
 
   create_table "sample", id: false, force: :cascade do |t|
     t.integer "id"
@@ -20,7 +36,7 @@ ActiveRecord::Schema.define(version: 20170613144544) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email",                 default: "", null: false
+    t.string   "email",                  default: "", null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -33,8 +49,5 @@ ActiveRecord::Schema.define(version: 20170613144544) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

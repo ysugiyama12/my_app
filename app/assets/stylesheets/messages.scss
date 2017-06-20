@@ -1,0 +1,170 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.bodystyle {
+  background-color: #00fa9a;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  font-size: 50px;
+  text-align: center;
+  margin-top: 50px;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 5px 5px 1px #006400;
+}
+.index {
+  font-size: 20px;
+  text-align: center;
+  color: #fff;
+  margin-top: 50px;
+}
+.indexbody {
+  width:700px;
+margin-right: auto;
+margin-left : auto;
+}
+.square_btn1{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px #ff7c5c;/*左線*/
+    color: #ff7c5c;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.square_btn1:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+}
+.square_btn2{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px #ff7c5c;/*左線*/
+    color: #ff7c5c;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.square_btn2:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+}
+.content {
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+    text-shadow: 2px 2px 1px #006400;
+}
+.tltable{
+  text-align: center;
+  margin: auto;
+}
+.box11{
+    padding: 0.5em 1em;
+    margin: auto;
+    color: #2e8b57;
+    background: white;
+    border-top: solid 5px #2e8b57;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    width: 500px;
+    margin-top: 30px;
+}
+.box11 p {
+    margin: 0;
+    padding: 0;
+}
+.name{
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+}
+.id{
+  color:#a9a9a9;
+}
+.date {
+  color:#c0c0c0;
+}
+.timeline {
+  width: 600px;
+  margin:auto;
+  float: left;
+  padding: 0.5em 1em;
+  margin: 5px;
+  font-weight: bold;
+  color: #2e8b57;/*文字色*/
+  background: #FFF;
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;/*角の丸み*/
+}
+.menu {
+  padding: 0.5em 1em;
+  margin: 5px;
+  font-weight: bold;
+  color: #2e8b57;/*文字色*/
+  background: #FFF;
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;/*角の丸み*/
+  text-align: right;
+}
+.profile {
+  float:left;
+  background-color: #FFFFFF;
+  margin: 5px;
+  width: 30%;
+  padding: 0.5em 1em;
+  color: #2e8b57;/*文字色*/
+  border: solid 3px #2e8b57;/*線*/
+  border-radius: 10px;
+}
+.tweet{
+    width: 600px;
+    margin:auto;
+    float: left;
+    margin: 5px;
+    font-weight: bold;
+    color: #2e8b57;/*文字色*/
+    background: #FFF;
+    border: solid 3px #2e8b57;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.pname {
+  font-size: 20px;
+  margin:10px;
+  font-weight: bold;
+}
+.pid {
+
+}
+.ptitle {
+  margin: 10px;
+}
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: #6091d3;/*文字色*/
+    background: #FFF;
+    border: solid 3px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0;
+    padding: 0;
+}
+#message_content {
+  font-size: 15px;
+  // width:500px;
+  // height:100px;
+}
