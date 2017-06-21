@@ -6,6 +6,8 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all
     @message = Message.new
+    @user = User.find(current_user['id'])
+    @tweet_count = Message.where(userid:current_user['id'])
   end
 
   # GET /messages/1
@@ -29,7 +31,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to "/messages", notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
