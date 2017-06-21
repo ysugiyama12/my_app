@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620051849) do
+ActiveRecord::Schema.define(version: 20170620084137) do
 
   create_table "contents", force: :cascade do |t|
     t.datetime "created_at"
@@ -27,6 +27,13 @@ ActiveRecord::Schema.define(version: 20170620051849) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "userid"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
   end
 
   create_table "sample", id: false, force: :cascade do |t|
@@ -48,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170620051849) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "image"
   end
 
 end

@@ -5,7 +5,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .bodystyle {
-  background-color: #00fa9a;
+  background-color: #e0ffe0;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -72,7 +72,7 @@ margin-left : auto;
   margin: auto;
 }
 .box11{
-    padding: 0.5em 1em;
+    padding: 10px;
     margin: auto;
     color: #2e8b57;
     background: white;
@@ -97,7 +97,7 @@ margin-left : auto;
   color:#c0c0c0;
 }
 .timeline {
-  width: 600px;
+  width: 575px;
   margin:auto;
   float: left;
   padding: 0.5em 1em;
@@ -107,6 +107,7 @@ margin-left : auto;
   background: #FFF;
   border: solid 3px #2e8b57;/*線*/
   border-radius: 10px;/*角の丸み*/
+  box-shadow: 5px 5px 6px -2px;
 }
 .menu {
   padding: 0.5em 1em;
@@ -117,6 +118,7 @@ margin-left : auto;
   border: solid 3px #2e8b57;/*線*/
   border-radius: 10px;/*角の丸み*/
   text-align: right;
+  box-shadow: 5px 5px 6px -2px;
 }
 .profile {
   float:left;
@@ -127,6 +129,7 @@ margin-left : auto;
   color: #2e8b57;/*文字色*/
   border: solid 3px #2e8b57;/*線*/
   border-radius: 10px;
+  box-shadow: 5px 5px 6px -2px;
 }
 .tweet{
     width: 600px;
@@ -138,6 +141,7 @@ margin-left : auto;
     background: #FFF;
     border: solid 3px #2e8b57;/*線*/
     border-radius: 10px;/*角の丸み*/
+    box-shadow: 5px 5px 6px -2px;
 }
 .pname {
   font-size: 20px;
@@ -165,6 +169,63 @@ margin-left : auto;
 }
 #message_content {
   font-size: 15px;
+  border: 2px solid #2e8b57;
+  border-radius: 20px;
+  padding: 10px 10px;
   // width:500px;
   // height:100px;
+}
+#message_content:focus{
+  outline: 0;
+}
+.btn {
+  font-size: 20px;
+}
+.square_btn {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #2e8b57;/*背景色*/
+    border-bottom: solid 2px #006400;/*少し濃い目の色に*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: 5px 5px 6px -2px;
+    font-size: 18px;
+    width:250px;
+    margin-left: auto;
+    border-radius: 20px;
+
+}
+
+.square_btn:active {
+    border-bottom: solid 2px #fd9535;
+    box-shadow: 5px 5px 6px -2px;
+    outline: 0;
+}
+.square_btn:focus {
+  outline: 0;
+}
+.p_thumbnail{
+  width:100px;
+  height:100px;
+}
+.p_icon {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 10px;
+}
+.p_icon_tweet {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+  float: left;
+}
+.message_content {
+  margin: 5px;
+}
+.delete {
+  float: right;
 }

@@ -15,12 +15,16 @@
   <span class="pid">
       id = <%= current_user['id']%>
   </span>
-  <br><br><br><br>
+  <% if @user.image? %>
+    <%= image_tag @user.image.url, :class => "p_icon"%>
+  <% end %>
+  <br>
+  つぶやいた数: <%= @tweet_count.count %>
   <br><br><br><br>
   <br><br><br><br>
 </div>
 <div class="tweet">
-    <%= render 'form' %>
+  <%= render 'form' %>
 </div>
   <div class="timeline">
 
@@ -42,7 +46,11 @@
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr> -->
+      <% @tmp = User.find(message.userid) %>
       <div class="box11">
+        <% if @tmp.image? %>
+          <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
+        <% end %>
         <span class="name">
           <%= message.name %>
         </span>
@@ -54,8 +62,11 @@
         <span class="date">
           <%= message.created_at.strftime("%m/%d %H:%M") %>
         </span>
-        <br><br>
-        <%= message.content %>
+        <br>
+        <span class="message_content">
+        <%= simple_format(message.content) %>
+      </span>
+        <%= link_to 'つぶやきを削除', message, method: :delete, :class => "delete",data: { confirm: '削除してよろしいですか？' } %>
       </div>
     <% end %>
   </tbody>
@@ -63,6 +74,5 @@
 
 <br>
 
-<%= link_to 'New Message', new_message_path %>
 </div>
 </body>
