@@ -13,14 +13,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-.title {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 50px;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 5px 5px 1px #006400;
-}
 .index {
   font-size: 20px;
   text-align: center;
@@ -119,6 +111,12 @@ margin-left : auto;
   border-radius: 10px;/*角の丸み*/
   text-align: right;
   box-shadow: 5px 5px 6px -2px;
+}
+.menu span{
+  float: left;
+  color: #666;
+  font-size: 25px;
+  margin-left: 10px;
 }
 .profile {
   float:left;
@@ -290,4 +288,14 @@ margin-left : auto;
 .link_write:hover {
   color: #000;
   background-color: #666;
+}
+.link_profile {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 10px;
+  float: right;
+}
+.link_profile:hover {
+  color:#000;
+  background-color: #f5f5f5;
 }

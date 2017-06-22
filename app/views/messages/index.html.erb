@@ -1,9 +1,7 @@
 <body class="bodystyle">
     <!-- <p id="notice"><%= notice %></p> -->
 <div class="menu">
-<%= link_to edit_user_registration_path,{:class => "link_menu"} do%>
-  <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
-<%end%>
+  <span>My Twitter</span>
 <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
 <i class="fa fa-user-times" aria-hidden="true">Log Out</i>
 <%end%>
@@ -20,6 +18,9 @@
   <span class="pid">
       id = <%= current_user['id']%>
   </span>
+  <%= link_to edit_user_registration_path,{:class => "link_profile"} do%>
+    <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
+  <%end%>
 </div>
   <% if @user.image? %>
     <%= image_tag @user.image.url, :class => "p_icon"%>
