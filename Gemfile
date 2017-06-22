@@ -47,3 +47,4 @@ end
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'font-awesome-rails'

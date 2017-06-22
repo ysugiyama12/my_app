@@ -1,77 +1,71 @@
 <body class="bodystyle">
-    <p id="notice"><%= notice %></p>
+    <!-- <p id="notice"><%= notice %></p> -->
 <div class="menu">
-  <span><%= link_to "プロフィールを編集", edit_user_registration_path %></span>
-  <span><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></span>
+<%= link_to edit_user_registration_path,{:class => "link_menu"} do%>
+  <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
+<%end%>
+<%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
+<i class="fa fa-user-times" aria-hidden="true">Log Out</i>
+<%end%>
   <br><br>
 </div>
 <div class="profile">
   <div class="ptitle">
   プロフィール
 </div>
+<div>
   <span class="pname">
     <%= current_user['name']%>
   </span>
   <span class="pid">
       id = <%= current_user['id']%>
   </span>
+</div>
   <% if @user.image? %>
     <%= image_tag @user.image.url, :class => "p_icon"%>
   <% end %>
   <br>
   つぶやいた数: <%= @tweet_count.count %>
-  <br><br><br><br>
-  <br><br><br><br>
 </div>
 <div class="tweet">
   <%= render 'form' %>
 </div>
   <div class="timeline">
-
-<table class="tltable">
-  <!-- <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
-
-  <tbody>
     <% @messages.reverse_each do |message| %>
-      <!-- <tr>
-        <td><%= message.name %></td>
-        <td><%= message.content %></td>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> -->
       <% @tmp = User.find(message.userid) %>
-      <div class="box11">
-        <% if @tmp.image? %>
-          <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
-        <% end %>
-        <span class="name">
-          <%= message.name %>
-        </span>
-        <span class="id">
-          <%if(message.userid) %>
-            id:<%= message.userid %>
-            <% end %>
-        </span>
-        <span class="date">
-          <%= message.created_at.strftime("%m/%d %H:%M") %>
-        </span>
-        <br>
-        <span class="message_content">
-        <%= simple_format(message.content) %>
-      </span>
-        <%= link_to 'つぶやきを削除', message, method: :delete, :class => "delete",data: { confirm: '削除してよろしいですか？' } %>
+      <div class="each_message">
+        <div class="each_image">
+          <% if @tmp.image? %>
+            <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
+          <% end %>
+        </div>
+        <div class="each_content">
+          <span class="name">
+            <%= message.name %>
+          </span>
+          <span class="id">
+            <%if(message.userid) %>
+              id:<%= message.userid %>
+              <% end %>
+          </span>
+          <span class="date">
+            <%= message.created_at.strftime("%m/%d %H:%M") %>
+          </span>
+          <div class="message_content">
+            <%= simple_format(message.content) %>
+          </div>
+          <br>
+          <%if(message.content == "")%>
+          <br>
+          <%end %>
+          <% if message.userid == @user.id %>
+          <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
+          <i class="fa fa-times" aria-hidden="true">delete</i>
+          <%end%>
+          <%end%>
+        </div>
       </div>
     <% end %>
-  </tbody>
-</table>
-
 <br>
 
 </div>

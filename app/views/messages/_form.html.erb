@@ -23,6 +23,8 @@
     <%= f.text_field :userid, value: current_user['id']%>
   </div>
   <div class="actions">
-    <%= f.submit :class =>"square_btn"%>
+    <%= button_tag :type => "submit", :class =>"link_write" do %>
+      <i class="fa fa-twitter" aria-hidden="true">Tweet</i>
+     <% end %>
   </div>
 <% end %>
