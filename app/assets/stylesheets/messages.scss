@@ -5,21 +5,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .bodystyle {
-  background-color: #e0ffe0;
+  background-color: #e0f5f5;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin-left: auto;
   margin-right: auto;
-}
-.title {
-  font-size: 50px;
-  text-align: center;
-  margin-top: 50px;
-  color: #fff;
-  font-weight: bold;
-  text-shadow: 5px 5px 1px #006400;
 }
 .index {
   font-size: 20px;
@@ -71,17 +63,17 @@ margin-left : auto;
   text-align: center;
   margin: auto;
 }
-.box11{
+.each_message{
     padding: 10px;
-    margin: auto;
-    color: #2e8b57;
+    margin:auto;
+    margin-bottom: 3px;
+    color: #008080;
     background: white;
-    border-top: solid 5px #2e8b57;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.22);
+    border-color: #666;
     width: 500px;
-    margin-top: 30px;
 }
-.box11 p {
+.each_message p {
     margin: 0;
     padding: 0;
 }
@@ -97,37 +89,43 @@ margin-left : auto;
   color:#c0c0c0;
 }
 .timeline {
+  overflow: hidden;
   width: 575px;
   margin:auto;
   float: left;
-  padding: 0.5em 1em;
+  padding: 1em 1em;
   margin: 5px;
-  font-weight: bold;
-  color: #2e8b57;/*文字色*/
-  background: #FFF;
-  border: solid 3px #2e8b57;/*線*/
+  color: #008080;/*文字色*/
+  background-color: #f5f5f5;
+  border: solid 3px #008080;/*線*/
   border-radius: 10px;/*角の丸み*/
   box-shadow: 5px 5px 6px -2px;
 }
 .menu {
-  padding: 0.5em 1em;
+  padding-top: 20px;
   margin: 5px;
   font-weight: bold;
-  color: #2e8b57;/*文字色*/
-  background: #FFF;
-  border: solid 3px #2e8b57;/*線*/
+  color: #008080;/*文字色*/
+  background-color: #f5f5f5;
+  border: solid 3px #008080;/*線*/
   border-radius: 10px;/*角の丸み*/
   text-align: right;
   box-shadow: 5px 5px 6px -2px;
 }
+.menu span{
+  float: left;
+  color: #666;
+  font-size: 25px;
+  margin-left: 10px;
+}
 .profile {
   float:left;
-  background-color: #FFFFFF;
+  background-color: #f5f5f5;
   margin: 5px;
   width: 30%;
   padding: 0.5em 1em;
-  color: #2e8b57;/*文字色*/
-  border: solid 3px #2e8b57;/*線*/
+  color: #008080;/*文字色*/
+  border: solid 3px #008080;/*線*/
   border-radius: 10px;
   box-shadow: 5px 5px 6px -2px;
 }
@@ -137,9 +135,9 @@ margin-left : auto;
     float: left;
     margin: 5px;
     font-weight: bold;
-    color: #2e8b57;/*文字色*/
-    background: #FFF;
-    border: solid 3px #2e8b57;/*線*/
+    color: #008080;/*文字色*/
+    background-color: #f5f5f5;
+    border: solid 3px #008080;/*線*/
     border-radius: 10px;/*角の丸み*/
     box-shadow: 5px 5px 6px -2px;
 }
@@ -169,7 +167,7 @@ margin-left : auto;
 }
 #message_content {
   font-size: 15px;
-  border: 2px solid #2e8b57;
+  border: 2px solid #008080;
   border-radius: 20px;
   padding: 10px 10px;
   // width:500px;
@@ -187,7 +185,7 @@ margin-left : auto;
     padding: 0.25em 0.5em;
     text-decoration: none;
     color: #FFF;
-    background: #2e8b57;/*背景色*/
+    background: #008080;/*背景色*/
     border-bottom: solid 2px #006400;/*少し濃い目の色に*/
     border-radius: 4px;/*角の丸み*/
     box-shadow: 5px 5px 6px -2px;
@@ -224,8 +222,80 @@ margin-left : auto;
   float: left;
 }
 .message_content {
-  margin: 5px;
 }
 .delete {
   float: right;
+}
+.menu_icon {
+  width:50px;
+  height:50px;
+}
+.square_btn3 {
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #ffffff;
+    background: #008080;/*色*/
+    border-radius: 4px;/*角の丸み*/
+    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+    border: solid 2px #d27d00;/*線色*/
+}
+
+.square_btn3:hover {/*押したとき*/
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+    color:#ffffff;
+}
+.each_image {
+  float: left;
+}
+.each_content {
+  overflow: hidden;
+  padding-left: 10px;
+
+
+}
+.link_menu {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 10px;
+}
+.link_menu:hover {
+  color:#000;
+  background-color: #f5f5f5;
+}
+.link_tweet {
+  text-decoration: none;
+  font-size: 15px;
+  margin: 10px;
+  color: #666;
+  float: right;
+}
+.link_tweet:hover {
+  color:#000;
+  background-color: #fff;
+}
+.link_write {
+  text-decoration: none;
+  margin:0px 20px 10px 0px;
+  font-size: 25px;
+  background-color: #f5f5f5;
+  color: #666;
+  float: right;
+  border-radius: 10px;
+}
+.link_write:hover {
+  color: #000;
+  background-color: #666;
+}
+.link_profile {
+  text-decoration: none;
+  font-size: 20px;
+  margin: 10px;
+  float: right;
+}
+.link_profile:hover {
+  color:#000;
+  background-color: #f5f5f5;
 }

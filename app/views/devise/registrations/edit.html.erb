@@ -1,6 +1,9 @@
 <body class="userbody">
-<div class="title">プロフィールの編集</div>
-
+  <%= link_to :back, :class => "link_edit" do%>
+  <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
+  <% end %>
+<div class="menu_edit">
+  <div class="etitle">Edit Profile</div>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -41,13 +44,15 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= button_tag :type => "submit", :class =>"link_write_edit" do %>
+      <i class="fa fa-refresh" aria-hidden="true"> Renew</i>
+     <% end %>
   </div>
+
 <% end %>
 
 <div class="field">アカウント削除</div>
 
 <div class="button"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></div>
-
-<%= link_to "Back", :back %>
+</div>
 </body>
