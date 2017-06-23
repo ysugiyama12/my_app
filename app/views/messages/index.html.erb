@@ -1,5 +1,6 @@
 <body class="bodystyle">
     <!-- <p id="notice"><%= notice %></p> -->
+
 <div class="menu">
   <span>My Twitter</span>
 <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
@@ -13,7 +14,11 @@
 </div>
 <div>
   <span class="pname">
-    <%= current_user['name']%>
+    <%if(current_user['name']) %>
+    <%= current_user['name'] %>
+    <% else %>
+    Guest User
+    <% end %>
   </span>
   <span class="pid">
       id = <%= current_user['id']%>
@@ -24,6 +29,8 @@
 </div>
   <% if @user.image? %>
     <%= image_tag @user.image.url, :class => "p_icon"%>
+  <% else %>
+  <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
   <% end %>
   <br>
   つぶやいた数: <%= @tweet_count.count %>
@@ -38,11 +45,17 @@
         <div class="each_image">
           <% if @tmp.image? %>
             <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
+            <% else %>
+            <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
           <% end %>
         </div>
         <div class="each_content">
           <span class="name">
+            <%if(message.name != '') %>
             <%= message.name %>
+            <% else %>
+            Guest User
+            <% end %>
           </span>
           <span class="id">
             <%if(message.userid) %>
