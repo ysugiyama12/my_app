@@ -7,7 +7,11 @@ class MessagesController < ApplicationController
     @messages = Message.all
     @message = Message.new
     @user = User.find(current_user['id'])
+    @users = User.all
     @tweet_count = Message.where(userid:current_user['id'])
+    @follow = Follow.all
+    @followers = Follow.where(user_id:current_user['id'])
+    @follow_count = Follow.where(user_id:current_user['id'])
   end
 
   # GET /messages/1

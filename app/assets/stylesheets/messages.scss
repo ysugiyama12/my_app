@@ -6,6 +6,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .bodystyle {
   background-color: #e0f5f5;
+  display: block;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -88,18 +89,16 @@ margin-left : auto;
 .date {
   color:#c0c0c0;
 }
-.timeline {
-  overflow: hidden;
-  width: 575px;
-  margin:auto;
-  float: left;
-  padding: 1em 1em;
-  margin: 5px;
-  color: #008080;/*文字色*/
-  background-color: #f5f5f5;
-  border: solid 3px #008080;/*線*/
-  border-radius: 10px;/*角の丸み*/
-  box-shadow: 5px 5px 6px -2px;
+.timeline{
+    float: left;
+    width: 600px;
+    margin: 5px;
+    font-weight: bold;
+    color: #008080;/*文字色*/
+    background-color: #f5f5f5;
+    border: solid 3px #008080;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    box-shadow: 5px 5px 6px -2px;
 }
 .menu {
   padding-top: 20px;
@@ -119,8 +118,17 @@ margin-left : auto;
   margin-left: 10px;
 }
 .profile {
-  float:left;
   background-color: #f5f5f5;
+  margin: 5px;
+  padding: 0.5em 1em;
+  color: #008080;/*文字色*/
+  border: solid 3px #008080;/*線*/
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px -2px;
+}
+.profile2 {
+  background-color: #f5f5f5;
+  clear: left;
   margin: 5px;
   width: 30%;
   padding: 0.5em 1em;
@@ -130,9 +138,9 @@ margin-left : auto;
   box-shadow: 5px 5px 6px -2px;
 }
 .tweet{
-    width: 600px;
-    margin:auto;
+    padding:1em 1em;
     float: left;
+    width: 600px;
     margin: 5px;
     font-weight: bold;
     color: #008080;/*文字色*/
@@ -298,4 +306,44 @@ margin-left : auto;
 .link_profile:hover {
   color:#000;
   background-color: #f5f5f5;
+}
+.rec_user {
+  position: absolute;
+  background-color: #f5f5f5;
+  margin: 5px;
+  width: 30%;
+  padding: 0.5em 1em;
+  color: #008080;/*文字色*/
+  border: solid 3px #008080;/*線*/
+  border-radius: 10px;
+  box-shadow: 5px 5px 6px -2px;
+}
+.right {
+}
+.left {
+  float: left;
+  width:35%;
+}
+.each_message_follow{
+    padding: 10px;
+    margin:auto;
+    margin-bottom: 3px;
+    color: #008080;
+    background: white;
+    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.22);
+    border-color: #666;
+    width: 350px;
+}
+.link_write_follow {
+  text-decoration: none;
+  margin:0px 20px 10px 0px;
+  font-size: 20px;
+  background-color: #f5f5f5;
+  color: #666;
+  float: right;
+  border-radius: 10px;
+}
+.link_write_follow:hover {
+  color: #000;
+  background-color: #666;
 }

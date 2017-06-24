@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620084137) do
+ActiveRecord::Schema.define(version: 20170623125116) do
 
   create_table "contents", force: :cascade do |t|
     t.datetime "created_at"
@@ -21,9 +21,16 @@ ActiveRecord::Schema.define(version: 20170620084137) do
     t.integer  "Favorite",   default: 0
   end
 
+  create_table "follows", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "follow_user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string   "name"
-    t.string   "content"
+    t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "userid"
