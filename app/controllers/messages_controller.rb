@@ -12,8 +12,13 @@ class MessagesController < ApplicationController
     @follow = Follow.all
     @followers = Follow.where(user_id:current_user['id'])
     @follow_count = Follow.where(user_id:current_user['id'])
+    @follower_count = Follow.where(follow_user_id:current_user['id'])
   end
-
+  def search
+    @messages = Message.all
+    @user = User.find(current_user['id'])
+    @result = Message.where("content like '%" + params[:name] + "%'")
+  end
   # GET /messages/1
   # GET /messages/1.json
   def show

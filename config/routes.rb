@@ -5,11 +5,14 @@ Rails.application.routes.draw do
     end
   end
   resources :pictures
-  resources :messages
+  resources :messages do
+    collection do
+        get 'search'
+    end
+  end
   get 'home/index'
 
   get 'home/authentication'
-
   devise_for :users
   resources :users
   root 'home#index'
