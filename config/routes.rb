@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :follows do
+    member do
+      post 'original'
+    end
+  end
   resources :pictures
   resources :messages
   get 'home/index'

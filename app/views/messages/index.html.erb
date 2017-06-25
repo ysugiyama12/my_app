@@ -1,86 +1,126 @@
 <body class="bodystyle">
-    <!-- <p id="notice"><%= notice %></p> -->
-
-<div class="menu">
-  <span>My Twitter</span>
-<%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
-<i class="fa fa-user-times" aria-hidden="true">Log Out</i>
-<%end%>
-  <br><br>
-</div>
-<div class="profile">
-  <div class="ptitle">
-  プロフィール
-</div>
-<div>
-  <span class="pname">
-    <%if(current_user['name']) %>
-    <%= current_user['name'] %>
-    <% else %>
-    Guest User
-    <% end %>
-  </span>
-  <span class="pid">
-      id = <%= current_user['id']%>
-  </span>
-  <%= link_to edit_user_registration_path,{:class => "link_profile"} do%>
-    <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
+  <div class="menu">
+    <span>My Twitter</span>
+  <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
+  <i class="fa fa-user-times" aria-hidden="true">Log Out</i>
   <%end%>
-</div>
-  <% if @user.image? %>
-    <%= image_tag @user.image.url, :class => "p_icon"%>
-  <% else %>
-  <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
-  <% end %>
-  <br>
-  つぶやいた数: <%= @tweet_count.count %>
-</div>
-<div class="tweet">
-  <%= render 'form' %>
-</div>
-  <div class="timeline">
-    <% @messages.reverse_each do |message| %>
-      <% @tmp = User.find(message.userid) %>
-      <div class="each_message">
-        <div class="each_image">
-          <% if @tmp.image? %>
-            <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
-            <% else %>
-            <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
-          <% end %>
-        </div>
-        <div class="each_content">
-          <span class="name">
-            <%if(message.name != '') %>
-            <%= message.name %>
-            <% else %>
-            Guest User
-            <% end %>
-          </span>
-          <span class="id">
-            <%if(message.userid) %>
-              id:<%= message.userid %>
-              <% end %>
-          </span>
-          <span class="date">
-            <%= message.created_at.strftime("%m/%d %H:%M") %>
-          </span>
-          <div class="message_content">
-            <%= simple_format(message.content) %>
-          </div>
-          <br>
-          <%if(message.content == "")%>
-          <br>
-          <%end %>
-          <% if message.userid == @user.id %>
-          <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
-          <i class="fa fa-times" aria-hidden="true">delete</i>
-          <%end%>
-          <%end%>
-        </div>
+    <br><br>
+  </div>
+  <div class="left">
+    <div class="profile">
+      <div class="ptitle">
+      プロフィール
+    </div>
+    <div>
+      <span class="pname">
+        <%if(current_user['name']) %>
+        <%= current_user['name'] %>
+        <% else %>
+        Guest User
+        <% end %>
+      </span>
+      <span class="pid">
+          id = <%= current_user['id']%>
+      </span>
+      <%= link_to edit_user_registration_path,{:class => "link_profile"} do%>
+        <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
+      <%end%>
+    </div>
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, :class => "p_icon"%>
+      <% else %>
+      <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
+      <% end %>
+      <br>
+      つぶやいた数: <%= @tweet_count.count %>
+      <br>
+      フォローしたユーザー数: <%= @follow_count.count %>
+    </div>
+    <div class="profile">
+      <div class="ptitle">
+      おすすめユーザー
+    </div>
+    <% @users.each do |user| %>
+    <% @ff = Follow.find_by(user_id:current_user['id'], follow_user_id: user.id) %>
+    <% if !@ff && (user.id != current_user['id']) %>
+    <div class="each_message_follow" >
+      <span class="name">
+        <%if(user.name) %>
+        <%= user.name %>
+        <% else %>
+        Guest User
+        <% end %>
+      </span>
+      <span class="pid">
+          id = <%= user.id %>
+      </span>
+      <div class="each_image">
+        <% if user.image? %>
+          <%= image_tag user.image.url, :class => "p_icon_tweet"%>
+          <% else %>
+          <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+        <% end %>
       </div>
+    <%= render 'form2', id: user.id %>
+    <br><br>
+      </div>
+      <% end %>
     <% end %>
-<br>
+    </div>
+  </div>
+  <div class="right">
+    <div class="tweet">
+      <%= render 'form',object: "hey" %>
+    </div>
+    <div class="tweet">
+      <% @messages.reverse_each do |message| %>
+      <% @fff = Follow.find_by(user_id:current_user['id'], follow_user_id: message.userid) %>
+       <% if @fff %>
+        <% @tmp = User.find(message.userid) %>
+        <div class="each_message">
+          <div class="each_image">
+            <% if @tmp.image? %>
+              <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
+              <% else %>
+              <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+            <% end %>
+          </div>
+          <div class="each_content">
+            <span class="name">
+              <%if(message.name != '') %>
+              <%= message.name %>
+              <% else %>
+              Guest User
+              <% end %>
+            </span>
+            <span class="id">
+              <%if(message.userid) %>
+                id:<%= message.userid %>
+                <% end %>
+            </span>
+            <span class="date">
+              <%= message.created_at.strftime("%m/%d %H:%M") %>
+            </span>
+            <div class="message_content">
+              <%= simple_format(message.content) %>
+            </div>
+            <br>
+            <%if(message.content == "")%>
+            <br>
+            <%end %>
+            <% if message.userid == @user.id %>
+            <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
+            <i class="fa fa-times" aria-hidden="true">delete</i>
+            <%end%>
+            <%end%>
+          </div>
+        </div>
+        <% end %>
 
-</div>
+      <% end %>
+     <br>
+    </div>
+  </div>
+    <!-- <p id="notice"><%= notice %></p> -->
+    <!-- <%= debug @follow %> -->
 </body>
