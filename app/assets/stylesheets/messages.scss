@@ -14,52 +14,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-.index {
-  font-size: 20px;
-  text-align: center;
-  color: #fff;
-  margin-top: 50px;
-}
-.indexbody {
-  width:700px;
-margin-right: auto;
-margin-left : auto;
-}
-.square_btn1{
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    background: #f7f7f7;
-    border-left: solid 6px #ff7c5c;/*左線*/
-    color: #ff7c5c;/*文字色*/
-    font-weight: bold;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-}
-.square_btn1:active {
-    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-    transform: translateY(2px);
-}
-.square_btn2{
-    display: inline-block;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    background: #f7f7f7;
-    border-left: solid 6px #ff7c5c;/*左線*/
-    color: #ff7c5c;/*文字色*/
-    font-weight: bold;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
-}
-.square_btn2:active {
-    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
-    transform: translateY(2px);
-}
-.content {
-  font-size: 20px;
-  color: #fff;
-  text-align: center;
-  margin-top: 50px;
-    text-shadow: 2px 2px 1px #006400;
-}
 .tltable{
   text-align: center;
   margin: auto;
@@ -126,17 +80,6 @@ margin-left : auto;
   border-radius: 10px;
   box-shadow: 5px 5px 6px -2px;
 }
-.profile2 {
-  background-color: #f5f5f5;
-  clear: left;
-  margin: 5px;
-  width: 30%;
-  padding: 0.5em 1em;
-  color: #008080;/*文字色*/
-  border: solid 3px #008080;/*線*/
-  border-radius: 10px;
-  box-shadow: 5px 5px 6px -2px;
-}
 .tweet{
     padding:1em 1em;
     float: left;
@@ -154,24 +97,8 @@ margin-left : auto;
   margin:10px;
   font-weight: bold;
 }
-.pid {
-
-}
 .ptitle {
   margin: 10px;
-}
-.box2 {
-    padding: 0.5em 1em;
-    margin: 2em 0;
-    font-weight: bold;
-    color: #6091d3;/*文字色*/
-    background: #FFF;
-    border: solid 3px #6091d3;/*線*/
-    border-radius: 10px;/*角の丸み*/
-}
-.box2 p {
-    margin: 0;
-    padding: 0;
 }
 #message_content {
   font-size: 15px;
@@ -186,31 +113,6 @@ margin-left : auto;
 }
 .btn {
   font-size: 20px;
-}
-.square_btn {
-    position: relative;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #FFF;
-    background: #008080;/*背景色*/
-    border-bottom: solid 2px #006400;/*少し濃い目の色に*/
-    border-radius: 4px;/*角の丸み*/
-    box-shadow: 5px 5px 6px -2px;
-    font-size: 18px;
-    width:250px;
-    margin-left: auto;
-    border-radius: 20px;
-
-}
-
-.square_btn:active {
-    border-bottom: solid 2px #fd9535;
-    box-shadow: 5px 5px 6px -2px;
-    outline: 0;
-}
-.square_btn:focus {
-  outline: 0;
 }
 .p_thumbnail{
   width:100px;
@@ -229,8 +131,6 @@ margin-left : auto;
   display: inline-block;
   float: left;
 }
-.message_content {
-}
 .delete {
   float: right;
 }
@@ -238,31 +138,12 @@ margin-left : auto;
   width:50px;
   height:50px;
 }
-.square_btn3 {
-    position: relative;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    text-decoration: none;
-    color: #ffffff;
-    background: #008080;/*色*/
-    border-radius: 4px;/*角の丸み*/
-    box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.05);
-    font-weight: bold;
-    border: solid 2px #d27d00;/*線色*/
-}
-
-.square_btn3:hover {/*押したとき*/
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
-    color:#ffffff;
-}
 .each_image {
   float: left;
 }
 .each_content {
   overflow: hidden;
   padding-left: 10px;
-
-
 }
 .link_menu {
   text-decoration: none;
@@ -317,8 +198,6 @@ margin-left : auto;
   border: solid 3px #008080;/*線*/
   border-radius: 10px;
   box-shadow: 5px 5px 6px -2px;
-}
-.right {
 }
 .left {
   float: left;
