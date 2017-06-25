@@ -46,6 +46,12 @@
       <!-- つぶやいた数: <%= @tweet_count.count %>
       <br>
       フォローしたユーザー数: <%= @follow_count.count %> -->
+      <div>
+      <% if @user.comment? %>
+      <%= @user.comment %>
+      <% end %>
+    </div>
+    <br>
       <div class="each_message_p">
         <div>
           ツイート数

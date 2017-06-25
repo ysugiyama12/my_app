@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625153627) do
+ActiveRecord::Schema.define(version: 20170625231119) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170625153627) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "image"
+    t.string   "comment"
   end
 
 end
