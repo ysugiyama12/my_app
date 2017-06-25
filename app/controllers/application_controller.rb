@@ -12,5 +12,6 @@ protected
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
     devise_parameter_sanitizer.permit(:sign_up, keys: [:image])
     devise_parameter_sanitizer.permit(:account_update, keys: [:image])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:comment])
   end
 end

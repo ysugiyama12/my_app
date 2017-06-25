@@ -22,6 +22,10 @@
     <%= f.label :userid %><br>
     <%= f.text_field :userid, value: current_user['id']%>
   </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
   <div class="actions">
     <%= button_tag :type => "submit", :class =>"link_write" do %>
       <i class="fa fa-twitter" aria-hidden="true">Tweet</i>

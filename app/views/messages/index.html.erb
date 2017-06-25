@@ -46,6 +46,12 @@
       <!-- つぶやいた数: <%= @tweet_count.count %>
       <br>
       フォローしたユーザー数: <%= @follow_count.count %> -->
+      <div>
+      <% if @user.comment? %>
+      <%= @user.comment %>
+      <% end %>
+    </div>
+    <br>
       <div class="each_message_p">
         <div>
           ツイート数
@@ -144,6 +150,10 @@
             <%if(message.content == "")%>
             <br>
             <%end %>
+            <% if message.image.url != nil  %>
+            <%= image_tag message.image.url, :class => "image_tweet"%>
+            <% end %>
+            <br>
             <% if message.userid == @user.id %>
             <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
             <i class="fa fa-times" aria-hidden="true">delete</i>

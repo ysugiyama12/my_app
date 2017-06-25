@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623125116) do
-
-  create_table "contents", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "page_title"
-    t.text     "page_body"
-    t.integer  "Favorite",   default: 0
-  end
+ActiveRecord::Schema.define(version: 20170625231119) do
 
   create_table "follows", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,18 +26,7 @@ ActiveRecord::Schema.define(version: 20170623125116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "userid"
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.datetime "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string   "image"
-  end
-
-  create_table "sample", id: false, force: :cascade do |t|
-    t.integer "id"
-    t.string  "name", limit: 256
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,6 +44,7 @@ ActiveRecord::Schema.define(version: 20170623125116) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "image"
+    t.string   "comment"
   end
 
 end
