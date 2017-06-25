@@ -46,6 +46,9 @@
         <div class="message_content">
           <%= simple_format(message.content) %>
         </div>
+        <% if message.image.url != nil  %>
+        <%= image_tag message.image.url, :class => "image_tweet"%>
+        <% end %>
         <br>
         <%if(message.content == "")%>
         <br>
