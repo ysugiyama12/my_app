@@ -1,10 +1,21 @@
 <body class="bodystyle">
   <div class="menu">
-    <span>My Twitter</span>
-  <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
-  <i class="fa fa-user-times" aria-hidden="true">Log Out</i>
-  <%end%>
-    <br><br>
+    <span style="margin-top:5px;">My Twitter</span>
+    <span style="font-weight:normal; margin-top:5px;"> - Top</span>
+    <%= form_tag(search_messages_path, method: "get") do %>
+    <span style="float:right;">
+    <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
+    <i class="fa fa-user-times" aria-hidden="true" style="margin-top:5px;">Log Out</i>
+    <%end%>
+  </span>
+    <span style="float:right;">
+    <%= text_field_tag :name, params[:name],{:placeholder => "Search"} %>
+    <%= button_tag :type => "submit", :class => "link_menu_search" do %>
+        <i class="fa fa-search" aria-hidden="true">Search</i>
+     <% end %>
+    <% end %>
+  </span>
+    <br><br><br>
   </div>
   <div class="left">
     <div class="profile">
@@ -32,9 +43,34 @@
       <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
       <% end %>
       <br>
-      つぶやいた数: <%= @tweet_count.count %>
+      <!-- つぶやいた数: <%= @tweet_count.count %>
       <br>
-      フォローしたユーザー数: <%= @follow_count.count %>
+      フォローしたユーザー数: <%= @follow_count.count %> -->
+      <div class="each_message_p">
+        <div>
+          ツイート数
+        </div>
+        <div id="num">
+          <%= @tweet_count.count %>
+        </div>
+      </div>
+      <div class="each_message_p">
+        <div>
+          フォロー
+        </div>
+        <div id="num">
+          <%= @follow_count.count %>
+        </div>
+      </div>
+      <div class="each_message_p">
+        <div>
+          フォロワー
+        </div>
+        <div id="num">
+          <%= @follower_count.count %>
+        </div>
+      </div>
+      <br><br><br><br>
     </div>
     <div class="profile">
       <div class="ptitle">
@@ -75,7 +111,7 @@
     <div class="tweet">
       <% @messages.reverse_each do |message| %>
       <% @fff = Follow.find_by(user_id:current_user['id'], follow_user_id: message.userid) %>
-       <% if @fff %>
+       <% if @fff || message.userid == current_user['id']%>
         <% @tmp = User.find(message.userid) %>
         <div class="each_message">
           <div class="each_image">

@@ -22,7 +22,7 @@
     padding: 10px;
     margin:auto;
     margin-bottom: 3px;
-    color: #008080;
+    color: #191970;
     background: white;
     box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.22);
     border-color: #666;
@@ -48,9 +48,9 @@
     width: 600px;
     margin: 5px;
     font-weight: bold;
-    color: #008080;/*文字色*/
+    color: #191970;/*文字色*/
     background-color: #f5f5f5;
-    border: solid 3px #008080;/*線*/
+    border: solid 3px #191970;/*線*/
     border-radius: 10px;/*角の丸み*/
     box-shadow: 5px 5px 6px -2px;
 }
@@ -58,9 +58,9 @@
   padding-top: 20px;
   margin: 5px;
   font-weight: bold;
-  color: #008080;/*文字色*/
+  color: #191970;/*文字色*/
   background-color: #f5f5f5;
-  border: solid 3px #008080;/*線*/
+  border: solid 3px #191970;/*線*/
   border-radius: 10px;/*角の丸み*/
   text-align: right;
   box-shadow: 5px 5px 6px -2px;
@@ -75,8 +75,8 @@
   background-color: #f5f5f5;
   margin: 5px;
   padding: 0.5em 1em;
-  color: #008080;/*文字色*/
-  border: solid 3px #008080;/*線*/
+  color: #191970;/*文字色*/
+  border: solid 3px #191970;/*線*/
   border-radius: 10px;
   box-shadow: 5px 5px 6px -2px;
 }
@@ -86,9 +86,9 @@
     width: 600px;
     margin: 5px;
     font-weight: bold;
-    color: #008080;/*文字色*/
+    color: #191970;/*文字色*/
     background-color: #f5f5f5;
-    border: solid 3px #008080;/*線*/
+    border: solid 3px #191970;/*線*/
     border-radius: 10px;/*角の丸み*/
     box-shadow: 5px 5px 6px -2px;
 }
@@ -102,7 +102,7 @@
 }
 #message_content {
   font-size: 15px;
-  border: 2px solid #008080;
+  border: 2px solid #191970;
   border-radius: 20px;
   padding: 10px 10px;
   // width:500px;
@@ -147,8 +147,8 @@
 }
 .link_menu {
   text-decoration: none;
-  font-size: 20px;
-  margin: 10px;
+  font-size: 22px;
+  margin: 25px;
 }
 .link_menu:hover {
   color:#000;
@@ -194,8 +194,8 @@
   margin: 5px;
   width: 30%;
   padding: 0.5em 1em;
-  color: #008080;/*文字色*/
-  border: solid 3px #008080;/*線*/
+  color: #191970;/*文字色*/
+  border: solid 3px #191970;/*線*/
   border-radius: 10px;
   box-shadow: 5px 5px 6px -2px;
 }
@@ -207,7 +207,7 @@
     padding: 10px;
     margin:auto;
     margin-bottom: 3px;
-    color: #008080;
+    color: #191970;
     background: white;
     box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.22);
     border-color: #666;
@@ -225,4 +225,55 @@
 .link_write_follow:hover {
   color: #000;
   background-color: #666;
+}
+.tweet_search{
+    padding:1em 1em;
+    width: 600px;
+    margin: auto;
+    font-weight: bold;
+    color: #191970;/*文字色*/
+    background-color: #f5f5f5;
+    border: solid 3px #191970;/*線*/
+    border-radius: 10px;/*角の丸み*/
+    box-shadow: 5px 5px 6px -2px;
+}
+#name {
+  font-size: 14px;
+  border-radius: 20px;
+  padding: 8px;
+}
+#name:focus{
+  outline: 0;
+}
+.link_menu_search {
+  background-color: #f5f5f5;
+  color: #666;
+  border: none;
+  text-decoration: none;
+  font-size: 22px;
+
+}
+.link_menu_search:hover {
+  color:#000;
+}
+.profile_data {
+  border: solid 2px #000;
+  width: 30%;
+  background-color: #f00;
+}
+.each_message_p{
+    float: left;
+    padding: 10px;
+    margin:auto;
+    margin-bottom: 3px;
+    color: #191970;
+    background: white;
+    box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.22);
+    border-color: #666;
+    width:80px;
+}
+.each_message_p #num {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
 }

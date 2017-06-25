@@ -1,0 +1,62 @@
+<body class="bodystyle">
+  <div class="menu">
+    <span style="margin-top:5px;">My Twitter</span>
+    <span style="font-weight:normal; margin-top:5px;"> - Search    </span>
+    <% if params[:name] %>
+    <span style="margin-left:50px; margin-top:5px;"><%= params[:name] %> の検索結果</span>
+    <% end %>
+    <%= form_tag(search_messages_path, method: "get") do %>
+    <%= text_field_tag :name, params[:name],{:placeholder => "Search"} %>
+    <%= button_tag :type => "submit", :class => "link_menu_search" do %>
+        <i class="fa fa-search" aria-hidden="true">Search</i>
+     <% end %>
+    <% end %>
+    <br>
+  </div>
+  <div class="tweet_search">
+    <% if @result.count == 0 %>
+    該当ツイートはありませんでした
+    <% end %>
+    <% @result.reverse_each do |message| %>
+    <% @tmp = User.find(message.userid) %>
+    <div class="each_message">
+      <div class="each_image">
+        <% if @tmp.image? %>
+          <%= image_tag @tmp.image.url, :class => "p_icon_tweet"%>
+          <% else %>
+          <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+        <% end %>
+      </div>
+      <div class="each_content">
+        <span class="name">
+          <%if(message.name != '') %>
+          <%= message.name %>
+          <% else %>
+          Guest User
+          <% end %>
+        </span>
+        <span class="id">
+          <%if(message.userid) %>
+            id:<%= message.userid %>
+            <% end %>
+        </span>
+        <span class="date">
+          <%= message.created_at.strftime("%m/%d %H:%M") %>
+        </span>
+        <div class="message_content">
+          <%= simple_format(message.content) %>
+        </div>
+        <br>
+        <%if(message.content == "")%>
+        <br>
+        <%end %>
+        <% if message.userid == @user.id %>
+        <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
+        <i class="fa fa-times" aria-hidden="true">delete</i>
+        <%end%>
+        <%end%>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</body>
