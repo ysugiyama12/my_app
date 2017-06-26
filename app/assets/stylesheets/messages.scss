@@ -36,6 +36,13 @@
   text-align: left;
   font-size: 15px;
   font-weight: bold;
+  text-decoration: none;
+  color: #666;
+}
+.name:hover{
+  background-color: #fff;
+  text-decoration: none;
+  color: #000;
 }
 .id{
   color:#a9a9a9;

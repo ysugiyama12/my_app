@@ -1,22 +1,184 @@
+<body class="bodystyle">
+  <%= link_to messages_path, :class => "link_edit" do%>
+  <i class="fa fa-arrow-left" aria-hidden="true"> Back</i>
+  <% end %>
 <p id="notice"><%= notice %></p>
-<%= debug @user.image %>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<p>
-<strong>Image:</strong>
-<% if @user.image? %>
-  <div class="thumbnail">
-  <%= image_tag @user.image.url %>
+<div class="profile">
+  <div class="ptitle">
+  プロフィール
 </div>
-<% end %>
-</p>
+<div>
+  <span class="pname">
+    <%if @user.name %>
+    <%= @user.name %>
+    <% else %>
+    Guest User
+    <% end %>
+  </span>
+  <span class="pid">
+      id = <%= @user.id %>
+  </span>
+  <% if @user.id == current_user['id'] %>
+  <%= link_to edit_user_registration_path,{:class => "link_profile"} do%>
+    <i class="fa fa-user-circle" aria-hidden="true">Edit Profile</i>
+  <%end%>
+  <% end %>
+</div>
+  <% if @user.image? %>
+    <%= image_tag @user.image.url, :class => "p_icon"%>
+  <% else %>
+  <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
+  <% end %>
+  <br>
+  <div>
+  <% if @user.comment? %>
+  <%= @user.comment %>
+  <% end %>
+</div>
+<br>
+<%  @followers = Follow.where(user_id:@user.id)
+    @follow_count = Follow.where(user_id:@user.id)
+    @follower_count = Follow.where(follow_user_id:@user.id)
+    @tweet_count = Message.where(userid:@user.id)
+    @follow = Follow.all
+    %>
+  <div class="each_message_p">
+    <div>
+      ツイート数
+    </div>
+    <div id="num">
+      <%= @tweet_count.count %>
+    </div>
+  </div>
+  <div class="each_message_p">
+    <div>
+      フォロー
+    </div>
+    <div id="num">
+      <%= @follow_count.count %>
+    </div>
+  </div>
+  <div class="each_message_p">
+    <div>
+      フォロワー
+    </div>
+    <div id="num">
+      <%= @follower_count.count %>
+    </div>
+  </div>
+  <br><br><br><br>
+</div>
+<div class="tweet">
+  ツイート<br><br>
+  <% @messages.reverse_each do |message| %>
+   <% if message.userid == @user.id%>
+    <div class="each_message">
+      <div class="each_image">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, :class => "p_icon_tweet"%>
+          <% else %>
+          <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+        <% end %>
+      </div>
+      <div class="each_content">
+        <span class="name">
+          <%if(message.name != '') %>
+          <%= message.name %>
+          <% else %>
+          Guest User
+          <% end %>
+        </span>
+        <span class="id">
+          <%if(message.userid) %>
+            id:<%= message.userid %>
+            <% end %>
+        </span>
+        <span class="date">
+          <%= message.created_at.strftime("%m/%d %H:%M") %>
+        </span>
+        <div class="message_content">
+          <%= simple_format(message.content) %>
+        </div>
+        <br>
+        <%if(message.content == "")%>
+        <br>
+        <%end %>
+        <% if message.image.url != nil  %>
+        <%= image_tag message.image.url, :class => "image_tweet"%>
+        <% end %>
+        <br>
+        <% if message.userid == current_user['id'] %>
+        <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
+        <i class="fa fa-times" aria-hidden="true">delete</i>
+        <%end%>
+        <%end%>
+      </div>
+    </div>
+    <% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <% end %>
+ <br>
+</div>
+
+<div class="follow">
+  フォローしているユーザー<br><br>
+  <% @follows = Follow.where(user_id:(@user.id)) %>
+  <% @follows.reverse_each do |follow| %>
+  <% @f_u = User.find_by(id:follow.follow_user_id) %>
+  <div class="each_message_follow" >
+    <span class="name">
+      <%if(@f_u.name) %>
+      <%= @f_u.name %>
+      <% else %>
+      Guest User
+      <% end %>
+    </span>
+    <span class="pid">
+        id = <%= @f_u.id %>
+    </span>
+    <div class="each_image">
+      <% if @f_u.image? %>
+        <%= image_tag @f_u.image.url, :class => "p_icon_tweet"%>
+        <% else %>
+        <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+      <% end %>
+    </div>
+  <br><br><br>
+    </div>
+    <% end %>
+ <br>
+</div>
+
+<div class="follow">
+  フォローされているユーザー<br><br>
+  <% @followers = Follow.where(follow_user_id:(@user.id)) %>
+  <% @followers.reverse_each do |follower| %>
+  <% @f_u = User.find_by(id:follower.user_id) %>
+  <div class="each_message_follow" >
+    <span class="name">
+      <%if(@f_u.name) %>
+      <%= @f_u.name %>
+      <% else %>
+      Guest User
+      <% end %>
+    </span>
+    <span class="pid">
+        id = <%= @f_u.id %>
+    </span>
+    <div class="each_image">
+      <% if @f_u.image? %>
+        <%= image_tag @f_u.image.url, :class => "p_icon_tweet"%>
+        <% else %>
+        <%= image_tag'_no-user-image.gif', :class => "p_icon_tweet"%>
+      <% end %>
+    </div>
+    <% @tmp = Follow.where(user_id:@user.id, follow_user_id:@f_u.id) %>
+    <% if @tmp.empty? && @user.id == current_user['id']%>
+        <%= render 'form2', id: @f_u.id %>
+        <% end %>
+  <br><br><br>
+    </div>
+    <% end %>
+ <br>
+</div>
+</body>

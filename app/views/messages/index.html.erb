@@ -6,6 +6,7 @@
     <span style="float:right;">
     <%= link_to destroy_user_session_path,:class => "link_menu", method: :delete do%>
     <i class="fa fa-user-times" aria-hidden="true" style="margin-top:5px;">Log Out</i>
+
     <%end%>
   </span>
     <span style="float:right;">
@@ -43,15 +44,13 @@
       <%= image_tag'_no-user-image.gif', :class => "p_icon"%>
       <% end %>
       <br>
-      <!-- つぶやいた数: <%= @tweet_count.count %>
-      <br>
-      フォローしたユーザー数: <%= @follow_count.count %> -->
       <div>
       <% if @user.comment? %>
       <%= @user.comment %>
       <% end %>
     </div>
     <br>
+    <%= link_to  user_path(@user) do%>
       <div class="each_message_p">
         <div>
           ツイート数
@@ -60,6 +59,8 @@
           <%= @tweet_count.count %>
         </div>
       </div>
+      <% end %>
+      <%= link_to  user_path(@user) do%>
       <div class="each_message_p">
         <div>
           フォロー
@@ -68,6 +69,8 @@
           <%= @follow_count.count %>
         </div>
       </div>
+      <% end %>
+      <%= link_to  user_path(@user) do%>
       <div class="each_message_p">
         <div>
           フォロワー
@@ -76,6 +79,7 @@
           <%= @follower_count.count %>
         </div>
       </div>
+      <% end %>
       <br><br><br><br>
     </div>
     <div class="profile">
@@ -128,13 +132,13 @@
             <% end %>
           </div>
           <div class="each_content">
-            <span class="name">
+            <%= link_to  user_path(@tmp), :class => "name" do%>
               <%if(message.name != '') %>
               <%= message.name %>
               <% else %>
               Guest User
               <% end %>
-            </span>
+            <% end %>
             <span class="id">
               <%if(message.userid) %>
                 id:<%= message.userid %>

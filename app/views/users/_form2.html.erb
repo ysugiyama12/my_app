@@ -1,0 +1,28 @@
+<% @follow = Follow.new %>
+<%= form_for(@follow) do |f| %>
+  <% if @follow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@follow.errors.count, "error") %> prohibited this follow from being saved:</h2>
+
+      <ul>
+      <% @follow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field" style="display:none;">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id, value: current_user['id']%>
+  </div>
+  <div class="field" style="display:none;">
+    <%= f.label :follow_user_id %><br>
+    <%= f.number_field :follow_user_id,value: id %>
+  </div>
+  <div class="actions">
+    <%= button_tag :type => "submit", :class =>"link_write_follow" do %>
+      <i class="fa fa-user-plus" aria-hidden="true">Follow</i>
+     <% end %>
+  </div>
+<% end %>
