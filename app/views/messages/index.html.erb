@@ -158,6 +158,11 @@
             <%= image_tag message.image.url, :class => "image_tweet"%>
             <% end %>
             <br>
+            <div class="ret">
+              <i class="fa fa-reply" aria-hidden="true"></i>
+              <i class="fa fa-retweet" aria-hidden="true"></i>
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
             <% if message.userid == @user.id %>
             <%= link_to message, method: :delete, :class => "link_tweet",data: { confirm: '削除してよろしいですか？' } do%>
             <i class="fa fa-times" aria-hidden="true">delete</i>
@@ -174,3 +179,41 @@
     <!-- <p id="notice"><%= notice %></p> -->
     <!-- <%= debug @follow %> -->
 </body>
+
+<script type="text/javascript">
+var num1 = 0;
+var num2 = 0;
+var num3 = 0;
+$(".fa-retweet").click(function(){
+  $(this).data("click",++num1);
+  var click = $(this).data("click");
+  if(click % 2 == 1){
+      $(".fa-retweet").css('color','green');
+  }else{
+    $(".fa-retweet").css('color','white');
+  }
+      return false;
+})
+
+$(".fa-reply").click(function(){
+  $(this).data("click",++num2);
+  var click = $(this).data("click");
+  if(click % 2 == 1){
+      $(".fa-reply").css('color','blue');
+  }else{
+    $(".fa-reply").css('color','white');
+  }
+      return false;
+})
+
+$(".fa-heart").click(function(){
+  $(this).data("click",++num3);
+  var click = $(this).data("click");
+  if(click % 2 == 1){
+      $(".fa-heart").css('color','red');
+  }else{
+    $(".fa-heart").css('color','white');
+  }
+      return false;
+})
+</script>

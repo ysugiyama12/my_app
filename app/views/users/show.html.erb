@@ -42,7 +42,7 @@
     @tweet_count = Message.where(userid:@user.id)
     @follow = Follow.all
     %>
-  <div class="each_message_p">
+  <div id="t_01" class="each_message_p" onclick="tweet_num()">
     <div>
       ツイート数
     </div>
@@ -50,7 +50,7 @@
       <%= @tweet_count.count %>
     </div>
   </div>
-  <div class="each_message_p">
+  <div id="t_02" class="each_message_p">
     <div>
       フォロー
     </div>
@@ -58,7 +58,7 @@
       <%= @follow_count.count %>
     </div>
   </div>
-  <div class="each_message_p">
+  <div id="t_03" class="each_message_p">
     <div>
       フォロワー
     </div>
@@ -120,7 +120,7 @@
  <br>
 </div>
 
-<div class="follow">
+<div class="follow" style="display:none;">
   フォローしているユーザー<br><br>
   <% @follows = Follow.where(user_id:(@user.id)) %>
   <% @follows.reverse_each do |follow| %>
@@ -149,7 +149,7 @@
  <br>
 </div>
 
-<div class="follow">
+<div class="follower" style="display:none;">
   フォローされているユーザー<br><br>
   <% @followers = Follow.where(follow_user_id:(@user.id)) %>
   <% @followers.reverse_each do |follower| %>
@@ -182,3 +182,24 @@
  <br>
 </div>
 </body>
+
+<script type="text/javascript">
+$("#t_01").click(function(){
+  $(".tweet").show();
+  $(".follow").hide();
+  $(".follower").hide();
+
+})
+$("#t_02").click(function(){
+  $(".tweet").hide();
+  $(".follow").show();
+  $(".follower").hide();
+
+})
+$("#t_03").click(function(){
+  $(".tweet").hide();
+  $(".follow").hide();
+  $(".follower").show();
+
+})
+</script>
