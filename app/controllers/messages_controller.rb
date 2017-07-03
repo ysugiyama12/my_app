@@ -6,6 +6,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all
     @message = Message.new
+
     @user = User.find(current_user['id'])
     @users = User.all
     @tweet_count = Message.where(userid:current_user['id'])
@@ -18,6 +19,7 @@ class MessagesController < ApplicationController
     @messages = Message.all
     @user = User.find(current_user['id'])
     @result = Message.where("content like '%" + params[:name] + "%'")
+
   end
   # GET /messages/1
   # GET /messages/1.json

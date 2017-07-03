@@ -22,7 +22,7 @@
   </div>
   <div class="field">
     <%= f.label 'プロフィール文' %><br />
-    <%= f.text_field :comment, autofocus: true %>
+    <%= f.text_area :comment, :size=>"40x3", autofocus: true %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

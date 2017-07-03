@@ -36,6 +36,13 @@
   text-align: left;
   font-size: 15px;
   font-weight: bold;
+  text-decoration: none;
+  color: #666;
+}
+.name:hover{
+  background-color: #fff;
+  text-decoration: none;
+  color: #000;
 }
 .id{
   color:#a9a9a9;
@@ -272,6 +279,9 @@
     border-color: #666;
     width:80px;
 }
+.each_message_p:hover{
+  background-color: #f5f5f5;
+}
 .each_message_p #num {
   font-size: 20px;
   font-weight: bold;
@@ -280,4 +290,34 @@
 .image_tweet {
   width: 80%;
   height:80%;
+}
+.fa-retweet {
+    color: #FFF;
+    font-size: 30px;
+    text-shadow: 0.4px 0.4px 0.4px #000,
+    -0.4px 0.4px 0.4px #000,
+    0.4px -0.4px 0.4px #000,
+    -0.4px -0.4px 0.4px #000;
+}
+.fa-reply{
+  color: #FFF;
+  font-size: 30px;
+  text-shadow: 0.4px 0.4px 0.4px #000,
+  -0.4px 0.4px 0.4px #000,
+  0.4px -0.4px 0.4px #000,
+  -0.4px -0.4px 0.4px #000;
+}
+.fa-heart {
+  color: #FFF;
+  font-size: 30px;
+  text-shadow: 0.4px 0.4px 0.4px #000,
+  -0.4px 0.4px 0.4px #000,
+  0.4px -0.4px 0.4px #000,
+  -0.4px -0.4px 0.4px #000;
+}
+.ret{
+  font-size: 25px;
+}
+.fa-heart-o {
+  color: #666;
 }
